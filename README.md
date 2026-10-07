@@ -37,7 +37,7 @@ report = analyze_results(raw,cfg.outputDir,'RLDSBO');
 plot_convergence(cfg.outputDir,fullfile(cfg.outputDir,'curves'),cfg.functions);
 ```
 
-完整函数集用 `cfg.functions = 1:30`。复核原20次协议可设置 `cfg.runs = 20`，但新运行不是原20次历史记录的精确恢复。快速试运行可设置 `cfg.runs = 2; cfg.maxFEs = 3000` 并指定不同的 `outputDir`；这些小预算结果不能用于替换论文实验。默认全套实验包含13500次独立运行，启动前请确认所选函数、算法和输出目录。
+完整函数集用 `cfg.functions = 1:30`。复核原20次协议可设置 `cfg.runs = 30`。快速试运行可设置 `cfg.runs = 2; cfg.maxFEs = 3000` 并指定不同的 `outputDir`；这些小预算结果不能用于替换论文实验。默认全套实验包含13500次独立运行，启动前请确认所选函数、算法和输出目录。
 
 `runs` 可设置2–9999；种群输入N为不小于30的10的倍数，以满足所保留多子群实现的分组及差分索引要求。仅包含 D=30，边界固定为[-100,100]。`maxFEs` 可为非N整数倍，但需至少N+20。每个函数/重复使用 `baseSeed + 10000*functionId + runId`，算法之间使用相同起始种子；不同算法消费随机数的顺序不同。
 
